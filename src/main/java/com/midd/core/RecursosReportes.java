@@ -50,7 +50,7 @@ public class RecursosReportes {
         String valor = "attachment; filename=reporte-equipos " + fechaActual +  ".xlsx";
         response.setHeader(cabecera, valor);
 
-        List<Equipo> equipos = servicio_equipos.buscarTodosEquipos();
+        //List<Equipo> equipos = servicio_equipos.buscarTodosEquipos();
         
         ReporteEquipos reporteEquipos = new ReporteEquipos();
         reporteEquipos.export(response);

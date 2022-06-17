@@ -28,14 +28,18 @@ public class ReporteEquipos {
         workbook = new XSSFWorkbook();
         sheet = workbook.createSheet("Reporte Equipos");
     }*/
+    public ReporteEquipos(){
+        workbook = new XSSFWorkbook();
+        sheet = workbook.createSheet("Reporte Equipos");
+    }
 
     private void cabeceraTabla(){
         Row row = sheet.createRow(0);
-        CellStyle style = workbook.createCellStyle();
+        /*CellStyle style = workbook.createCellStyle();
         XSSFFont font = workbook.createFont();
         font.setBold(true);
         font.setFontHeight(16);
-        style.setFont(font);
+        style.setFont(font);*/
         Cell cell;
         String[] headers = {
                 "Tipo",
@@ -50,7 +54,7 @@ public class ReporteEquipos {
         for (int i = 0; i < headers.length; i++) {
             cell = row.createCell(i);
             cell.setCellValue(headers[i]);
-            cell.setCellStyle(style);
+            //cell.setCellStyle(style);
         }
 
     }
