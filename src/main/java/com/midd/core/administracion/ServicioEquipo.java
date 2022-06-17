@@ -16,7 +16,6 @@ public class ServicioEquipo{
     
     private final EquipoRepo equipo_Repo;
 
-    @Autowired
     public ServicioEquipo(EquipoRepo equipo_Repo) {
         this.equipo_Repo = equipo_Repo;
     }

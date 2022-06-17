@@ -24,12 +24,16 @@ import com.midd.core.reportes.*;
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST })
 @RequestMapping("/reportes")
 public class RecursosReportes {
-    
+
     @Autowired
     private final ServicioEquipo servicio_equipos;
+    @Autowired
     private final ServiciosActivos servicio_activos;
+    @Autowired
     private final ServiciosPerfil servicio_perfil;
+    @Autowired
     private final ServicosAsignacionProyecto servicio_asignacion_proyecto;
+    @Autowired
     private final ServiciosAsociados servicio_asociado;
     
     public RecursosReportes(ServicioEquipo servicio_equipos, ServiciosActivos servicio_activos,

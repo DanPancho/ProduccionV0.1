@@ -68,6 +68,7 @@ public class RecursosPerfil {
 
 	@GetMapping("perfiles")
 	public ResponseEntity<?> perfilesTodo(){
+		System.out.println("VERSION1");
 		List<Perfil> mios = serviciosPerfil.buscarTodos();
 		return new ResponseEntity<>(mios,HttpStatus.OK);
 	}
