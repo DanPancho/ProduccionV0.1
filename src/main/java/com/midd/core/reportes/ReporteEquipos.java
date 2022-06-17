@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.midd.core.modelo.Equipo;
 
@@ -94,16 +95,22 @@ public class ReporteEquipos {
                 cell.setCellValue(rows[i]);
                 sheet.autoSizeColumn(i);
             }
+            System.out.println("FIN ESCRIBIENDO CELDAS...");
         }
     }
 
     public void export(HttpServletResponse response) throws IOException{
         cabeceraTabla();
         escribirDatosTabla();
+        System.out.println("DESPUES DE GENERAR EL EXCEL");
         ServletOutputStream outputStream = response.getOutputStream();
+        System.out.println("1");
         workbook.write(outputStream);
+        System.out.println("2");
         workbook.close();
+        System.out.println("3");
         outputStream.close();
+        System.out.println("4");
         System.out.println("TERMINO EL EXPORT");
     }
     
