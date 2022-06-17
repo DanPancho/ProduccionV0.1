@@ -9,9 +9,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFFont;
+
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -21,17 +20,17 @@ public class ReporteEquipos {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
 
-    /*List<Equipo> equipos;
+    List<Equipo> equipos;
 
     public ReporteEquipos(List<Equipo> equipos) {
         this.equipos = equipos;
         workbook = new XSSFWorkbook();
         sheet = workbook.createSheet("Reporte Equipos");
-    }*/
-    public ReporteEquipos(){
+    }
+    /*public ReporteEquipos(){
         workbook = new XSSFWorkbook();
         sheet = workbook.createSheet("Reporte Equipos");
-    }
+    }*/
 
     private void cabeceraTabla(){
         Row row = sheet.createRow(0);
@@ -58,13 +57,9 @@ public class ReporteEquipos {
         }
 
     }
-    /* 
+    
     private void escribirDatosTabla(){
         int initRow = 1;
-        CellStyle cellStyle = workbook.createCellStyle();
-        XSSFFont font = workbook.createFont();
-        font.setFontHeight(14);
-        cellStyle.setFont(font);
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -95,14 +90,13 @@ public class ReporteEquipos {
                 cell = row.createCell(i);
                 cell.setCellValue(rows[i]);
                 sheet.autoSizeColumn(i);
-                cell.setCellStyle(cellStyle);
             }
         }
-    }*/
+    }
 
     public void export(HttpServletResponse response) throws IOException{
         cabeceraTabla();
-        //escribirDatosTabla();
+        escribirDatosTabla();
         ServletOutputStream outputStream = response.getOutputStream();
         workbook.write(outputStream);
         workbook.close();
