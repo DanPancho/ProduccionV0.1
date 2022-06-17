@@ -52,11 +52,12 @@ public class RecursosReportes {
 
         List<Equipo> equipos = servicio_equipos.buscarTodosEquipos();
         
-        ReporteEquipos reporteEquipos = new ReporteEquipos(equipos);
+        ReporteEquipos reporteEquipos = new ReporteEquipos();
         reporteEquipos.export(response);
+        System.out.println("GENERANDO EL EXCEL....!!");
     }
   
-
+    /* 
     @GetMapping("/asignaciones-reportes")
     public void reportesAsignaciones(HttpServletResponse response) throws IOException{
         response.setContentType("application/octet-stream");
@@ -100,6 +101,6 @@ public class RecursosReportes {
         
         ReporteHabilidades reporte_habilidades = new ReporteHabilidades(habilidades, servicio_asociado);
         reporte_habilidades.export(response);
-    }
+    }*/
 
 }

@@ -21,13 +21,13 @@ public class ReporteEquipos {
     private XSSFWorkbook workbook;
     private XSSFSheet sheet;
 
-    List<Equipo> equipos;
+    /*List<Equipo> equipos;
 
     public ReporteEquipos(List<Equipo> equipos) {
         this.equipos = equipos;
         workbook = new XSSFWorkbook();
         sheet = workbook.createSheet("Reporte Equipos");
-    }
+    }*/
 
     private void cabeceraTabla(){
         Row row = sheet.createRow(0);
@@ -54,7 +54,7 @@ public class ReporteEquipos {
         }
 
     }
-
+    /* 
     private void escribirDatosTabla(){
         int initRow = 1;
         CellStyle cellStyle = workbook.createCellStyle();
@@ -94,11 +94,11 @@ public class ReporteEquipos {
                 cell.setCellStyle(cellStyle);
             }
         }
-    }
+    }*/
 
     public void export(HttpServletResponse response) throws IOException{
         cabeceraTabla();
-        escribirDatosTabla();
+        //escribirDatosTabla();
         ServletOutputStream outputStream = response.getOutputStream();
         workbook.write(outputStream);
         workbook.close();
