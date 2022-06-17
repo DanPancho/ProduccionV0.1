@@ -95,7 +95,7 @@ public class ReporteEquipos {
                 System.out.println("ESCRIBIENDO CELDAS...2");
                 cell.setCellValue(rows[i]);
                 System.out.println("ESCRIBIENDO CELDAS...3");
-                sheet.autoSizeColumn(i);
+               // sheet.autoSizeColumn(i);
                 System.out.println("ESCRIBIENDO CELDAS...4");
             }
             System.out.println("FIN ESCRIBIENDO CELDAS...");
