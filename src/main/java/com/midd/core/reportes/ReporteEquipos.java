@@ -59,6 +59,7 @@ public class ReporteEquipos {
     }
     
     private void escribirDatosTabla(){
+        System.out.println("ESCRIBIENDO DATA...");
         int initRow = 1;
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -66,6 +67,7 @@ public class ReporteEquipos {
         String mensaje = "";
 
         for (Equipo equipo : equipos) {
+            System.out.println("ESCRIBIENDO DATA BUCLE...");
             Row row = sheet.createRow(initRow++);
 
             if (equipo.isEstado_asi()) {
@@ -87,6 +89,7 @@ public class ReporteEquipos {
             Cell cell;
             
             for(int i=0; i < rows.length; i++){
+                System.out.println("ESCRIBIENDO CELDAS...");
                 cell = row.createCell(i);
                 cell.setCellValue(rows[i]);
                 sheet.autoSizeColumn(i);
@@ -101,6 +104,7 @@ public class ReporteEquipos {
         workbook.write(outputStream);
         workbook.close();
         outputStream.close();
+        System.out.println("TERMINO EL EXPORT");
     }
     
 }
