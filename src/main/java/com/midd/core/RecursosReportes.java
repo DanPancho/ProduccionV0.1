@@ -25,17 +25,25 @@ import com.midd.core.reportes.*;
 @RequestMapping("/reportes")
 public class RecursosReportes {
     
-    @Autowired
     private final ServicioEquipo servicio_equipos;
+    private final ServiciosActivos servicio_activos;
+    private final ServiciosPerfil servicio_perfil;
+    private final ServicosAsignacionProyecto servicio_asignacion_proyecto;
+    private final ServiciosAsociados servicio_asociado;
     
-    public RecursosReportes(ServicioEquipo servicio_equipos) {
+    public RecursosReportes(ServicioEquipo servicio_equipos, ServiciosActivos servicio_activos,
+            ServiciosPerfil servicio_perfil, ServicosAsignacionProyecto servicio_asignacion_proyecto,
+            ServiciosAsociados servicio_asociado) {
         this.servicio_equipos = servicio_equipos;
+        this.servicio_activos = servicio_activos;
+        this.servicio_perfil = servicio_perfil;
+        this.servicio_asignacion_proyecto = servicio_asignacion_proyecto;
+        this.servicio_asociado = servicio_asociado;
     }
 
 
     @GetMapping("/equipos-reportes")
     public void reportesEquipos(HttpServletResponse response) throws IOException{
-        System.out.println("ENTRO EL END POINT");
         response.setContentType("application/octet-stream");
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
         String fechaActual = dateFormat.format(new Date());
@@ -43,15 +51,13 @@ public class RecursosReportes {
         String valor = "attachment; filename=reporte-equipos " + fechaActual +  ".xlsx";
         response.setHeader(cabecera, valor);
 
-        System.out.println("BUSCANDO TODOS LOS EQUIPOS...");
         List<Equipo> equipos = servicio_equipos.buscarTodosEquipos();
-        System.out.println("TERMINO DE BUSCAR...");
+        
         ReporteEquipos reporteEquipos = new ReporteEquipos(equipos);
         reporteEquipos.export(response);
         System.out.println("GENERANDO EL EXCEL2....!!");
     }
   
-    /* 
     @GetMapping("/asignaciones-reportes")
     public void reportesAsignaciones(HttpServletResponse response) throws IOException{
         response.setContentType("application/octet-stream");
@@ -95,6 +101,6 @@ public class RecursosReportes {
         
         ReporteHabilidades reporte_habilidades = new ReporteHabilidades(habilidades, servicio_asociado);
         reporte_habilidades.export(response);
-    }*/
+    }
 
 }

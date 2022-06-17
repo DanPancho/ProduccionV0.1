@@ -190,7 +190,7 @@ public class ReporteHabilidades {
             for (int j = 0; j < habilidades_row.get(i).length; j++) {
                 cell = row.createCell(j);
                 cell.setCellValue(habilidades_row.get(i)[j]);
-                sheet.autoSizeColumn(j);
+                //sheet.autoSizeColumn(j);
                 cell.setCellStyle(cellStyle);
             }
         }

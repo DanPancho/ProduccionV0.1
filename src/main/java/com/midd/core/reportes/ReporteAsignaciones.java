@@ -120,7 +120,7 @@ public class ReporteAsignaciones {
             for(int i=0; i < rows.length; i++){
                 cell = row.createCell(i);
                 cell.setCellValue(rows[i]);
-                sheet.autoSizeColumn(i);
+                //sheet.autoSizeColumn(i);
                 cell.setCellStyle(cellStyle);
             }
               

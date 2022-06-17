@@ -21,7 +21,6 @@ public class RecursosPerfil {
 	RenameLogger logger;
 
 	
-	@Autowired
 	public RecursosPerfil(ServiciosPerfil serviciosPerfil, Respuestas respuestas) {
 		this.serviciosPerfil = serviciosPerfil;
 		this.respuestas = respuestas;

@@ -9,11 +9,11 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
-
+import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import com.midd.core.modelo.Equipo;
 
@@ -35,11 +35,11 @@ public class ReporteEquipos {
 
     private void cabeceraTabla(){
         Row row = sheet.createRow(0);
-        /*CellStyle style = workbook.createCellStyle();
+        CellStyle style = workbook.createCellStyle();
         XSSFFont font = workbook.createFont();
         font.setBold(true);
         font.setFontHeight(16);
-        style.setFont(font);*/
+        style.setFont(font);
         Cell cell;
         String[] headers = {
                 "Tipo",
@@ -54,7 +54,7 @@ public class ReporteEquipos {
         for (int i = 0; i < headers.length; i++) {
             cell = row.createCell(i);
             cell.setCellValue(headers[i]);
-            //cell.setCellStyle(style);
+            cell.setCellStyle(style);
         }
 
     }
@@ -62,6 +62,10 @@ public class ReporteEquipos {
     private void escribirDatosTabla(){
         System.out.println("ESCRIBIENDO DATA...");
         int initRow = 1;
+        CellStyle cellStyle = workbook.createCellStyle();
+        XSSFFont font = workbook.createFont();
+        font.setFontHeight(14);
+        cellStyle.setFont(font);
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -97,6 +101,7 @@ public class ReporteEquipos {
                 System.out.println("ESCRIBIENDO CELDAS...3 "+ i);
                // sheet.autoSizeColumn(i);
                 System.out.println("ESCRIBIENDO CELDAS...4 "+ i);
+                cell.setCellStyle(cellStyle);
             }
             System.out.println("FIN ESCRIBIENDO CELDAS...");
         }
