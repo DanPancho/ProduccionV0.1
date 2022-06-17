@@ -90,10 +90,13 @@ public class ReporteEquipos {
             Cell cell;
             
             for(int i=0; i < rows.length; i++){
-                System.out.println("ESCRIBIENDO CELDAS...");
+                System.out.println("ESCRIBIENDO CELDAS...1");
                 cell = row.createCell(i);
+                System.out.println("ESCRIBIENDO CELDAS...2");
                 cell.setCellValue(rows[i]);
+                System.out.println("ESCRIBIENDO CELDAS...3");
                 sheet.autoSizeColumn(i);
+                System.out.println("ESCRIBIENDO CELDAS...4");
             }
             System.out.println("FIN ESCRIBIENDO CELDAS...");
         }
