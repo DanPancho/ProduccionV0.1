@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,12 +25,13 @@ import com.midd.core.reportes.*;
 @RequestMapping("/reportes")
 public class RecursosReportes {
     
+    @Autowired
     private final ServicioEquipo servicio_equipos;
     private final ServiciosActivos servicio_activos;
     private final ServiciosPerfil servicio_perfil;
     private final ServicosAsignacionProyecto servicio_asignacion_proyecto;
     private final ServiciosAsociados servicio_asociado;
-
+    
     public RecursosReportes(ServicioEquipo servicio_equipos, ServiciosActivos servicio_activos,
             ServiciosPerfil servicio_perfil, ServicosAsignacionProyecto servicio_asignacion_proyecto,
             ServiciosAsociados servicio_asociado) {
