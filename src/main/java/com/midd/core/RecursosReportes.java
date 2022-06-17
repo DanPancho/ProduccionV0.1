@@ -54,7 +54,7 @@ public class RecursosReportes {
         
         ReporteEquipos reporteEquipos = new ReporteEquipos(equipos);
         reporteEquipos.export(response);
-        System.out.println("GENERANDO EL EXCEL....!!");
+        System.out.println("GENERANDO EL EXCEL2....!!");
     }
   
     /* 
